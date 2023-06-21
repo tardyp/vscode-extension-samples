@@ -21,7 +21,35 @@
 				"command": "extension.inline-completion-settings",
 				"title": "My Inline Completion Demo Settings"
 			}
-		]
+		],
+		"configuration": {
+			"title": "codey",
+			"type": "object",
+			"properties": {
+			  "codey.gcloudtoken": {
+				"type": "string",
+				"description": "A session token you get when running gcloud auth print-access-token",
+				"order": 1
+			  },
+			  "codey.projectid": {
+				"type": "string",
+				"description": "the gcp projectid",
+				"order": 1
+			  },
+			  "codey.temperature": {
+				"default": 0.2,
+				"type": "integer",
+				"description": "the temperature",
+				"order": 1
+			  },
+			  "codey.maxOutputTokens": {
+				"default": 64,
+				"type": "integer",
+				"description": "the maxOutputTokens parameter",
+				"order": 1
+			  }
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -33,11 +61,14 @@
 	},
 	"devDependencies": {
 		"@types/node": "^16.18.34",
+		"@types/vscode": "^1.74.0",
 		"@typescript-eslint/eslint-plugin": "^5.42.0",
 		"@typescript-eslint/parser": "^5.42.0",
-		"eslint": "^8.26.0",
-		"typescript": "^5.1.3",
 		"@vscode/dts": "^0.4.0",
-		"@types/vscode": "^1.74.0"
+		"eslint": "^8.26.0",
+		"typescript": "^5.1.3"
+	},
+	"dependencies": {
+		"axios": "^1.4.0"
 	}
 }
